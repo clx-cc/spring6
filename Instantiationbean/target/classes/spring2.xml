@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        通过工厂方法模式实例化bean
+            在spring的配置文件中指定具体产品工厂类和具体产品工厂类中生产具体产品的方法
+                factory-bean="catFactoryBean" factory-method="get"
+     -->
+    <bean id="catFactoryBean" class="com.cao.spring.bean.CatFactory"/>
+    <bean id="catBean" factory-bean="catFactoryBean" factory-method="get"/>
+
+</beans>

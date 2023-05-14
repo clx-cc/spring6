@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userDao" class="com.cao.spring6.dao.UserDao"/>
+
+    <!--根据名字进行自动装配-->
+    <!--如果要使用这种方法，必须满足以下条件：
+        被注入的对象的bean的id不能随便写
+        id必须是set方法的方法名去掉set，首字母小写。
+        -->
+    <bean id="userServiceBean" class="com.cao.spring6.service.UserService" autowire="byName"/>
+</beans>

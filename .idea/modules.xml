@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Instantiationbean/Instantiationbean.iml" filepath="$PROJECT_DIR$/Instantiationbean/Instantiationbean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JDK-proxy/JDK-proxy.iml" filepath="$PROJECT_DIR$/JDK-proxy/JDK-proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dynamic-proxy/dynamic-proxy.iml" filepath="$PROJECT_DIR$/dynamic-proxy/dynamic-proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/factory-method/factory-method.iml" filepath="$PROJECT_DIR$/factory-method/factory-method.iml" />
+      <module fileurl="file://$PROJECT_DIR$/factory-method-review/factory-method-review.iml" filepath="$PROJECT_DIR$/factory-method-review/factory-method-review.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ioc-annocation-review/ioc-annocation-review.iml" filepath="$PROJECT_DIR$/ioc-annocation-review/ioc-annocation-review.iml" />
+      <module fileurl="file://$PROJECT_DIR$/review-annotation/review-annotation.iml" filepath="$PROJECT_DIR$/review-annotation/review-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/review-reflect/review-reflect.iml" filepath="$PROJECT_DIR$/review-reflect/review-reflect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simple-factory/simple-factory.iml" filepath="$PROJECT_DIR$/simple-factory/simple-factory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simple-factory-review/simple-factory-review.iml" filepath="$PROJECT_DIR$/simple-factory-review/simple-factory-review.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6.iml" filepath="$PROJECT_DIR$/spring6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-001-first/spring6-001-first.iml" filepath="$PROJECT_DIR$/spring6-001-first/spring6-001-first.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-002-DI/spring6-002-DI.iml" filepath="$PROJECT_DIR$/spring6-002-DI/spring6-002-DI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-003-scope/spring6-003-scope.iml" filepath="$PROJECT_DIR$/spring6-003-scope/spring6-003-scope.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-004-instantiation/spring6-004-instantiation.iml" filepath="$PROJECT_DIR$/spring6-004-instantiation/spring6-004-instantiation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-005-bean-lifecycle/spring6-005-bean-lifecycle.iml" filepath="$PROJECT_DIR$/spring6-005-bean-lifecycle/spring6-005-bean-lifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-006-circular-dependency/spring6-006-circular-dependency.iml" filepath="$PROJECT_DIR$/spring6-006-circular-dependency/spring6-006-circular-dependency.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-007-aop-aspectj-annocation/spring6-007-aop-aspectj-annocation.iml" filepath="$PROJECT_DIR$/spring6-007-aop-aspectj-annocation/spring6-007-aop-aspectj-annocation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-008-aop-realapp-tx/spring6-008-aop-realapp-tx.iml" filepath="$PROJECT_DIR$/spring6-008-aop-realapp-tx/spring6-008-aop-realapp-tx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-010-spring-aop-practice/spring6-008-spring-aspectj-aop-annotation.iml" filepath="$PROJECT_DIR$/spring6-010-spring-aop-practice/spring6-008-spring-aspectj-aop-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-011-tx-bank/spring6-011-tx-bank.iml" filepath="$PROJECT_DIR$/spring6-011-tx-bank/spring6-011-tx-bank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-012-mybatis/spring6-012-mybatis.iml" filepath="$PROJECT_DIR$/spring6-012-mybatis/spring6-012-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-ioc-annotation/spring6-ioc-annotation.iml" filepath="$PROJECT_DIR$/spring6-ioc-annotation/spring6-ioc-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/static-proxy/static-proxy.iml" filepath="$PROJECT_DIR$/static-proxy/static-proxy.iml" />
+    </modules>
+  </component>
+</project>

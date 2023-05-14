@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--这就是spring的配置文件，
+    idea工具为我们提供了这个文件的模板，一定要使用这个模板来创建spring配置文件
+    这个文件名不是固定的，可以是任何名字
+    这个文件放的位置也不是固定的，最好放在类路径下（resources)，方便后期移植
+    放在resources下，就相当于放到了类的根路径下。
+    -->
+<!--配置bean,这样spring才可以帮助我们管理这个对象
+    bean标签的两个重要属性：
+        id:是这个bean的唯一标识，不能重复
+        class:类的全限定类名
+-->
+    <bean id="userBean" class="com.cao.spring6.bean.User"/>
+<!--    配置java.util.Data Bean-->
+    <bean id="nowTime" class="java.util.Date"/>
+
+
+</beans>

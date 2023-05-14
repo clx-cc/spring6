@@ -1,0 +1,34 @@
+package com.cao.bank.dao.impl;
+
+import com.cao.bank.dao.AccountDao;
+import com.cao.bank.pojo.Account;
+import jakarta.annotation.Resource;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+@Repository("accountDaoImpl")
+public class AccountDaoImpl implements AccountDao {
+    @Resource(name = "jdbcTemplate")
+    private JdbcTemplate jdbcTemplate;
+
+    @Override
+    public Account selectByActno(String actno) {
+        String sql = "select id,actno,balance from t_act where actno = ?";
+        Account account = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Account.class), actno);
+        return account;
+    }
+
+    @Override
+    public int update(Account act) {
+        String sql = "update t_act set id = ? , balance = ? where actno = ?";
+        int count = jdbcTemplate.update(sql, act.getId(), act.getBalance(), act.getActno());
+        return count;
+    }
+
+    @Override
+    public int insert(Account account) {
+        String sql = "insert into t_act (actno,balance) values(?,?)";
+        return jdbcTemplate.update(sql,account.getActno(),account.getBalance());
+    }
+}

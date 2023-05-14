@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userDaoBean" class="com.cao.spring6.dao.UserDao"/>
+    <bean id="userServiceBean" class="com.cao.spring6.service.UserService">
+        <!--想让spring调用对应的方法，需要配置property标签
+            name属性值怎么指定？
+                set方法名，去掉set，首字母小写。
+            ref：需要注入bean的id。
+
+        -->
+        <property name="userDao" ref="userDaoBean"/>
+    </bean>
+</beans>

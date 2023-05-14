@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        第一种解决方案：
+        use-default-filters
+            如果这个属性是false,表示com.cao.spring.bean2包下所有带有声明Bean的注解全部失效。
+                然后通过include-filter选择生效注解。
+
+    -->
+    <context:component-scan base-package="com.cao.spring.bean2" use-default-filters="false">
+        <!--只有他被包含进来，生效-->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>
+
+    <!--
+        第二种解决方案：
+            use-default-filters
+                如果这个属性值是true,表示com.cao.spring.bean2包下所有带有声明Bean的注解全部生效。
+                    然后通过exclude-filter标签选择失效注解。
+    -->
+<!--    <context:component-scan base-package="com.cao.spring.bean2" use-default-filters="true">-->
+<!--        &lt;!&ndash;以下这个注解失效！！！&ndash;&gt;-->
+<!--        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>-->
+<!--        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>-->
+<!--    </context:component-scan>-->
+</beans>

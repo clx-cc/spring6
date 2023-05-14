@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        singleton+setter模式下的循环依赖是没有任何问题的。
+        那么在singleton+setter模式下为什么不会出现循环依赖问题？Spring是如何应对的？
+            主要是因为在这种模式下Spring的管理分为两个阶段：
+                第一个阶段：在Spring容器加载的时候，实例化Bean，只要其中任意一个Bean实例化完成，就进行”曝光“（不等属性赋值就曝光）
+                第二个阶段：Bean"曝光"之后，再进行属性赋值。
+
+                核心解决方案是：实例化对象和属性赋值分成两个步骤完成。
+        注意：
+            只有在scope是singleton的情况下，Bean才会采取提前“曝光"
+    -->
+<!--    <bean id="husbandBean" class="com.cao.spring.bean.Husband" scope="singleton">-->
+<!--        <property name="name" value="张三"/>-->
+<!--        <property name="wife" ref="wifeBean"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="wifeBean" class="com.cao.spring.bean.Wife" scope="singleton">-->
+<!--        <property name="name" value="小红"/>-->
+<!--        <property name="husband" ref="husbandBean"/>-->
+<!--    </bean>-->
+
+    <!--在prototype+setter模式下的循环依赖问题：
+        只有当两个bean的scope都是prototype时，才会出现异常。
+            报错：BeanCurrentlyInCreationException
+        只要其中任意一个是singleton的，就不会出现异常
+    -->
+    <bean id="husbandBean" class="com.cao.spring.bean.Husband" scope="prototype">
+        <property name="name" value="张三"/>
+        <property name="wife" ref="wifeBean"/>
+    </bean>
+
+    <bean id="wifeBean" class="com.cao.spring.bean.Wife" scope="prototype">
+        <property name="name" value="小红"/>
+        <property name="husband" ref="husbandBean"/>
+    </bean>
+</beans>

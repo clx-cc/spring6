@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+
+    <!--util命名空间：让配置复用-->
+    <util:properties id="prop">
+        <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+        <prop key="url">jdbc://localhost://3306/spring6</prop>
+        <prop key="username">root</prop>
+        <prop key="password">12345</prop>
+    </util:properties>
+    <bean id="dsu1" class="com.cao.spring6.bean.MyDataSource1">
+        <property name="properties" ref="prop"/>
+    </bean>
+    <bean id="dsu2" class="com.cao.spring6.bean.MyDataSource2">
+        <property name="properties" ref="prop"/>
+    </bean>
+    <!--传统properties配置-->
+    <!--数据源1-->
+    <bean id="ds1" class="com.cao.spring6.bean.MyDataSource1">
+        <property name="properties">
+            <props>
+                <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="url">jdbc://localhost://3306/spring6</prop>
+                <prop key="username">root</prop>
+                <prop key="password">12345</prop>
+            </props>
+        </property>
+    </bean>
+    <!--数据源2-->
+    <bean id="ds2" class="com.cao.spring6.bean.MyDataSource2">
+        <property name="properties">
+            <props>
+                <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="url">jdbc://localhost://3306/spring6</prop>
+                <prop key="username">root</prop>
+                <prop key="password">12345</prop>
+            </props>
+        </property>
+    </bean>
+    <!--c命名空间：c命名空间是针对构造注入的-->
+    <bean id="dogBean4" class="com.cao.spring6.bean.Dog" c:name="小狗4" c:age="19"/>
+    <!--传统构造注入写法-->
+    <bean id="dogBean3" class="com.cao.spring6.bean.Dog">
+        <constructor-arg name="name" value="小狗3"/>
+        <constructor-arg name="age" value="20"/>
+    </bean>
+    <!--p命名空间写法：p命名空间是针对set注入的-->
+    <bean id="dogBean2" class="com.cao.spring6.bean.Dog" p:name="小狗2" p:age="21"/>
+    <!--传统set注入写法-->
+    <bean id="dogBean" class="com.cao.spring6.bean.Dog">
+        <property name="name" value="小狗1"/>
+        <property name="age" value="22"/>
+    </bean>
+</beans>

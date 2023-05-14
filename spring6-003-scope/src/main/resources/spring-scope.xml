@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        目前来说：scope属性有两个值（默认是singleton）
+            singleton：单例
+            prototype：原型/多例
+        其实scope属性还有其他值
+            例如：request session
+            但是request session要求项目必须是一个web项目，当你引入springmvc框架的时候，这两个值就可以使用了。
+            request：一次请求当中只有一个bean
+            session：一次会话中只有一个bean
+
+    -->
+    <bean id="sb" class="com.cao.spring.bean.SpringBean" scope="prototype"/>
+</beans>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--这是一个工厂Bean：用来返回普通Bean：java.util.Date
+        这里实际上调用了DateFactory的一个方法返回了Date实例：getObject()
+    -->
+    <bean id="date" class="com.cao.spring6.bean.DateFactory">
+        <constructor-arg index="0" value="1998-11-18"/>
+    </bean>
+    <bean id="studentBean" class="com.cao.spring6.bean.Student">
+        <property name="birth" ref="date"/>
+    </bean>
+
+    <bean id="vipBean" class="com.cao.spring6.bean.VipFactory" factory-method="get"/>
+
+
+    <!--通过构造方法实例化Bean-->
+    <bean id="springBean" class="com.cao.spring6.bean.SpringBean"/>
+    <!--Spring提供的实例化方法之二：通过简单工厂模式，需要在spring的配置文件告诉Spring框架，调用哪个类的哪个方法实例化Bean-->
+    <!--factory-method属性指定的是工厂类中的静态方法，也就是告诉Spring框架，调用这个方法可以获得Bean-->
+    <bean id="star" class="com.cao.spring6.bean.StarFactory" factory-method="get"/>
+    <!--Spring提供的实例化方法之三：通过工厂方法模式，通过factory-bean属性和factory-method属性共同完成-->
+    <!--告诉Spring框架，调用哪个对象的哪个实例方法来获取bean-->
+    <bean id="orderFactoryBean" class="com.cao.spring6.bean.OrderFactory"/>
+    <!--下面的意思是：通过OrderFactoryBean的实例方法get()可以获取到Order实例-->
+    <bean id="order" factory-bean="orderFactoryBean" factory-method="get"/>
+    <!--Spring实例化方法之四：通过FactoryBean接口实例化
+        条件：必须实现FactoryBean接口，以及接口中的方法
+        factory-bean会自动指向实现了FactoryBean接口的类，factory-method会自动指向getObject()方法
+    -->
+    <!--因为实现了FactoryBean接口，所以factory-bean会自动指向实现了FactoryBean接口的类，factory-method会自动指向getObject()方法-->
+    <bean id="customer" class="com.cao.spring6.bean.CustomerFactory"/>
+
+    <bean id="personBean" class="com.cao.spring6.bean.PersonFactoryBean"/>
+</beans>

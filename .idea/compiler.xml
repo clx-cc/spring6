@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring6-004-instantiation" />
+        <module name="spring6-001-first" />
+        <module name="simple-factory" />
+        <module name="spring6-003-scope" />
+        <module name="spring6-005-bean-lifecycle" />
+        <module name="JDK-proxy" />
+        <module name="simple-factory-review" />
+        <module name="ioc-annocation-review" />
+        <module name="spring6-ioc-annotation" />
+        <module name="Instantiationbean" />
+        <module name="dynamic-proxy" />
+        <module name="review-annotation" />
+        <module name="factory-method" />
+        <module name="spring6-011-tx-bank" />
+        <module name="factory-method-review" />
+        <module name="spring6-007-aop-aspectj-annocation" />
+        <module name="spring6-008-aop-realapp-tx" />
+        <module name="spring6-002-DI" />
+        <module name="review-reflect" />
+        <module name="spring6-006-circular-dependency" />
+        <module name="static-proxy" />
+        <module name="spring6-012-mybatis" />
+        <module name="spring6-008-spring-aspectj-aop-annotation" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dynamic-proxy" target="17" />
+      <module name="factory-method" target="17" />
+      <module name="factory-method-review" target="17" />
+      <module name="Instantiationbean" target="17" />
+      <module name="ioc-annocation-review" target="17" />
+      <module name="JDK-proxy" target="17" />
+      <module name="review-annotation" target="17" />
+      <module name="review-reflect" target="17" />
+      <module name="simple-factory" target="17" />
+      <module name="simple-factory-review" target="17" />
+      <module name="spring6-001-first" target="17" />
+      <module name="spring6-002-DI" target="17" />
+      <module name="spring6-003-scope" target="17" />
+      <module name="spring6-004-instantiation" target="17" />
+      <module name="spring6-005-bean-lifecycle" target="17" />
+      <module name="spring6-006-circular-dependency" target="17" />
+      <module name="spring6-007-aop-aspectj-annocation" target="17" />
+      <module name="spring6-008-aop-realapp-tx" target="17" />
+      <module name="spring6-008-spring-aspectj-aop-annotation" target="17" />
+      <module name="spring6-008-spring-aspectj-aop-annotation (1)" target="1.8" />
+      <module name="spring6-009-spring-aspectj-aop-xml" target="1.8" />
+      <module name="spring6-010-spring-aop-practice" target="1.8" />
+      <module name="spring6-011-tx-bank" target="17" />
+      <module name="spring6-012-mybatis" target="17" />
+      <module name="spring6-ioc-annotation" target="17" />
+      <module name="static-proxy" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

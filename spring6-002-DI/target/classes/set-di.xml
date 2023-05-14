@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="catBean12" class="com.cao.spring6.bean.Cat">
+        <property name="name" value="小猫12"/>
+    </bean>
+    <bean id="animal" class="com.cao.spring6.bean.Animal">
+        <property name="foods">
+            <array>
+                <value>艾米</value>
+            </array>
+        </property>
+        <property name="cats">
+            <array>
+                <ref bean="catBean12"/>
+            </array>
+        </property>
+        <property name="listSimple">
+            <list>
+                <value>listSimple1</value>
+                <value>listSimple2</value>
+            </list>
+        </property>
+        <property name="list2">
+            <list>
+                <ref bean="catBean12"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="catBean" class="com.cao.spring6.bean.Cat">
+        <!--注入null方法一：什么都不写就是null-->
+        <!--注入null方法二：<null/>标签-->
+<!--        <property name="name">-->
+<!--            <null/>-->
+<!--        </property>-->
+        <!--注入空字符串方法一：-->
+<!--        <property name="name" value=""/>-->
+        <!--注入空字符串方法二：<value/>标签-->
+        <property name="name">
+            <value/>
+        </property>
+
+    </bean>
+    <bean id="peopleBean" class="com.cao.spring6.bean.People">
+        <!--注入properties属性类对象-->
+        <property name="properties">
+            <props>
+                <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql://localhost:3306/spring6</prop>
+                <prop key="username">root</prop>
+                <prop key="password">12345</prop>
+            </props>
+        </property>
+        <!--Map集合注入:非简单类型-->
+        <property name="goodsMap">
+            <map>
+                <!--如果key是简单类型，使用key属性，反之使用key-ref属性-->
+                <!--如果value是简单类型，使用key属性，反之使用value-ref属性-->
+                <entry key="小明" value-ref="goodsBean1"/>
+                <entry key="小白" value-ref="goodsBean2"/>
+            </map>
+        </property>
+        <!--Map集合注入:key不可重复，value可重复-->
+        <property name="ages">
+            <map>
+                <entry key="小明" value="20" />
+                <entry key="小红" value="19" />
+                <entry key="小白" value="18" />
+<!--                <entry key="小白" value="30" /> 重复的话，会覆盖前面的值-->
+            </map>
+        </property>
+        <!--set集合注入：无序不重复-->
+        <property name="phones">
+            <set>
+                <!--集合的元素类型是简单类型用value，反之用ref-->
+                <value>110</value>
+                <value>119</value>
+                <value>120</value>
+            </set>
+        </property>
+        <!--list集合注入-->
+        <property name="list" >
+            <list>
+                <!--还是一句话，集合的元素类型是简单数组类型用value,反之用ref-->
+                <value>好人</value>
+                <value>坏蛋</value>
+                <value>阴阳人</value>
+            </list>
+        </property>
+    </bean>
+    <!--复杂类型数组注入-->
+    <bean id="goodsBean1" class="com.cao.spring6.bean.Goods">
+        <property name="name" value="手机"/>
+    </bean>
+    <bean id="goodsBean2" class="com.cao.spring6.bean.Goods">
+        <property name="name" value="冰箱"/>
+    </bean>
+    <bean id="orderBean" class="com.cao.spring6.bean.Order">
+        <property name="goods">
+            <array>
+                <!--使用ref标签注入-->
+                <ref bean="goodsBean1"/>
+                <ref bean="goodsBean2"/>
+            </array>
+        </property>
+    </bean>
+    <!--简单类型数组注入-->
+    <bean id="personBean" class="com.cao.spring6.bean.Person">
+        <property name="foods">
+            <array>
+                <value>包子</value>
+                <value>fish</value>
+                <value>牛排</value>
+                <value>日本人</value>
+            </array>
+        </property>
+    </bean>
+    <!--注入简单类型-->
+    <bean id="userBean" class="com.cao.spring6.dao.User">
+        <!--重点：给简单类型注入不能使用ref，而是使用value-->
+        <property name="username" value="ccc"/>
+        <property name="password" value="123"/>
+        <property name="age" value="22"/>
+    </bean>
+    <!--声明/定义Bean-->
+    <bean id="orderDaoBean" class="com.cao.spring6.dao.OrderDao"/>
+
+    <bean id="orderServiceBean" class="com.cao.spring6.service.OrderService">
+        <!--使用ref属性来引入：注入外部Bean-->
+        <property name="orderDao" ref="orderDaoBean"/>
+    </bean>
+    <bean id="orderServiceBean2" class="com.cao.spring6.service.OrderService">
+        <!--使用ref属性来引入：注入外部Bean-->
+        <property name="orderDao">
+            <!--在property标签内部嵌套bean标签：这就叫做内部Bean-->
+            <bean class="com.cao.spring6.dao.OrderDao" />
+        </property>
+    </bean>
+</beans>
